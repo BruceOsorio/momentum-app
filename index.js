@@ -33,9 +33,9 @@ setInterval(()=>{
     }
 
     if(seconds < 60){
-    seconds = "0" + seconds;
+    seconds = ":" + seconds;
     }
 
 
-   time.textContent = hours + ":" + minutes + " "+ day_night;
+   time.textContent = hours + ":" + minutes + " " + seconds + " " +  day_night;
   });
