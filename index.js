@@ -1,11 +1,41 @@
-var line = document.createElement("line") // gonna use this
-line.textContent = "This is a line that will change color when hovered over."
+function displayTime(){
+    var dateTime = new Date();
+    var hrs = dateTime.getHours();
+    var min = dateTime.getMinutes();
+    var sec = dateTime.getSeconds();
+    var session = getElementById('session');
 
-line.addEventListener("mouseenter", (event) => {
-    event.target.style.color = "red";
-    setTimeout(() => {
-        event.target.style.color = "";
-    }, 500);
-}, false);
+    document.getElementById('hours').innerHTML = hrs;
+    douument.getElementById('minutes').innerHTML = min;
+    document.getElementById('seconds').innerHTML = sec;
+}
+// setInterval(displayTime, 10);
+setInterval(()=>{
+    const time = document.querySelector(".clock");
+    let date = new Date();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
+    let day_night = "AM";
 
-document.body.append(line)
+
+    if(hours > 12){
+      day_night = "PM";
+      hours = hours - 12;
+    }
+
+    if(hours == 0){
+      hours =  12;
+    }
+
+    if(minutes < 10){
+    minutes = "0" + minutes;
+    }
+
+    if(seconds < 60){
+    seconds = "0" + seconds;
+    }
+
+
+   time.textContent = hours + ":" + minutes + " "+ day_night;
+  });
